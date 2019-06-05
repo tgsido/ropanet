@@ -25,6 +25,7 @@ update_confusion_matrix, get_error_analysis_fig
 from keras.utils import plot_model
 
 
+tf.enable_eager_execution()
 
 logging.basicConfig(level=logging.INFO)
 
