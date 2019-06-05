@@ -14,7 +14,7 @@ class ModaNetBaseline(tf.keras.Model):
 
         input_shape = (299, 299, 3)
         NUM_CLASSES = 50
-        initializer = tf.initializers.VarianceScaling(scale=2.0)
+        #initializer = tf.initializers.VarianceScaling(scale=2.0)
 
         self.inception_model = tf.keras.applications.inception_v3.InceptionV3(
             include_top=False,
@@ -29,9 +29,8 @@ class ModaNetBaseline(tf.keras.Model):
         self.fc = tf.keras.layers.Dense(
             NUM_CLASSES,
             activation='softmax',
-            use_bias=True,
-            bias_initializer=initializer,
-            kernel_initializer=initializer)
+            use_bias=True
+            )
 
 
     def call(self, input_tensor, training=False):
@@ -52,7 +51,7 @@ class InceptionFeatureExtractor(tf.keras.Model):
         INCEPTION_INPUT_SHAPE = (299, 299, 3)
         LANDMARK_INPUT_SHAPE = (8,8,2048)
         NUM_CLASSES = 50
-        initializer = tf.initializers.VarianceScaling(scale=2.0)
+        #initializer = tf.initializers.VarianceScaling(scale=2.0)
 
         ### INCEPTION MODEL ###
         self.inception_model = tf.keras.applications.inception_v3.InceptionV3(
