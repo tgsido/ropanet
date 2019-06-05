@@ -80,15 +80,15 @@ def load_dataset(DEFAULT_DATA_DIR):
     all_category_labels = [int(all_category_labels[i]) for i in indices]
 
     ## start and end indices for data split ##
-    """
+
     train_start,train_end = 0,245000
     val_start,val_end = 245000,285000
     test_start,test_end = 285000,len(all_img_paths)
     """
-
     train_start,train_end = 0,20
     val_start,val_end = 20,25
     test_start,test_end = 25,30
+    """
 
     train_paths = all_img_paths[train_start:train_end]
     train_categories = all_category_labels[train_start:train_end]
