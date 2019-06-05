@@ -62,7 +62,7 @@ def main(args):
         print("DEFAULT_DATA_DIR:",DEFAULT_DATA_DIR)
 
         ### INIT TB LOGGING ###
-        summary_writer = tf.summary.create_file_writer(os.path.join(TENSORBOARD_DIR,str(datetime.datetime.now())))
+        summary_writer = tf.contrib.summary.create_file_writer(os.path.join(TENSORBOARD_DIR,str(datetime.datetime.now())))
 
         ### Model Hyperparameters ###
         train_batch_size = args.train_batch_size
