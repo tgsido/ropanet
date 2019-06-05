@@ -62,7 +62,7 @@ def main(args):
         print("DEFAULT_DATA_DIR:",DEFAULT_DATA_DIR)
 
         ### INIT TB LOGGING ###
-        summary_writer = tf.contrib.summary.create_file_writer(os.path.join(TENSORBOARD_DIR,str(datetime.datetime.now())))
+        #summary_writer = tf.contrib.summary.create_file_writer(os.path.join(TENSORBOARD_DIR,str(datetime.datetime.now())))
 
         ### Model Hyperparameters ###
         train_batch_size = args.train_batch_size
@@ -353,7 +353,7 @@ def main(args):
 
                         fig = get_confusion_matrix(val_confusion_matrix, categories=ALL_CATEGORIES)
                         val_matrix_image = generate_img_from_plot(fig)
-
+                        """
                         with summary_writer.as_default():
                             tf.summary.scalar('train_loss', train_loss.result(), step=t)
                             tf.summary.scalar('train_accuracy', train_accuracy.result() * 100, step=t)
@@ -371,7 +371,7 @@ def main(args):
                             tf.summary.scalar('val_recall', val_recall.result(), step=t)
                             tf.summary.image("Train Confusion Matrix", train_matrix_image, step=t)
                             tf.summary.image("Val Confusion Matrix", val_matrix_image, step=t)
-
+                        """
 
                     t += 1
                     #print("t:",t, "train_batch_counter:",train_batch_counter)
@@ -435,9 +435,10 @@ def main(args):
                 true_category = ALL_CATEGORIES[y_true[i] - 1]
                 fig = get_error_analysis_fig(img_matrix, pred_category, true_category)
                 test_image = generate_img_from_plot(fig)
+                """
                 with summary_writer.as_default():
                     tf.summary.image("Test Image #{}".format(test_img_counter), test_image, step=test_img_counter)
-
+                """
 
 
 
