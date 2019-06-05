@@ -36,17 +36,18 @@ def load_dataset(DEFAULT_DATA_DIR):
     print(all_categories_names_data_path)
 
     ALL_CATEGORIES = []
-    with open(all_categories_names_data_path,'r') as f:
-        line_count = 0
-        for line in f:
-            line_count += 1
-            if line_count < 3:
-                continue
+    f_obj = open(all_categories_names_data_path,'r')
+    line_count = 0
+    for line in f:
+        line_count += 1
+        if line_count < 3:
+            continue
 
-            ## parse out info ##
-            line_lst = line.split()
-            category_name = line_lst[0]
-            ALL_CATEGORIES.append(category_name)
+        ## parse out info ##
+        line_lst = line.split()
+        category_name = line_lst[0]
+        ALL_CATEGORIES.append(category_name)
+    f_obj.close()
 
     ## pathnames ##
     category_data_path = os.path.join(DEFAULT_DATA_DIR, "anno_pre","list_category_img.txt")
